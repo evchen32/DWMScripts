@@ -1,0 +1,26 @@
+XF86AudioRaiseVolume
+	pamixer -i 5; kill -s SIGRTMIN+1 $(cat ~/scripts/status_pid)
+
+XF86AudioLowerVolume
+	pamixer -d 5; kill -s SIGRTMIN+1 $(cat ~/scripts/status_pid)
+
+XF86AudioMute
+	pamixer -t;kill -s SIGRTMIN+1 $(cat ~/scripts/status_pid)
+
+super + shift + s
+	maim -s | xclip -selection clipboard -target image/png
+
+Print
+	maim ~/Screenshots/$(date +%s).png
+
+super + o
+	rofi -dpi 172 -font "Terminus 14" -show run
+
+super + shift + p
+	~/scripts/power_menu.sh
+
+super + shift + q
+	~/scripts/quit_dwm.sh
+
+super + shift + i
+	firefox --private-window
